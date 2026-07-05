@@ -110,32 +110,36 @@ GrowHub solves these issues by creating a real-time intelligent civic ecosystem 
 ## 📁 Project Structure
 GrowHub/
 │
+## 📁 Project Structure
+
+GrowHub/
+
 ├── src/
-│ ├── components/
-│ │ ├── Dashboard/
-│ │ ├── Map/
-│ │ ├── Emergency/
-│ │ ├── Crime/
-│ │ ├── Jobs/
-│ │ └── Community/
-│ │
-│ ├── pages/
-│ │ ├── Dashboard.jsx
-│ │ ├── Crime.jsx
-│ │ ├── Emergency.jsx
-│ │ ├── Jobs.jsx
-│ │ └── Community.jsx
-│ │
-│ ├── services/
-│ │ ├── api.js
-│ │ ├── mapService.js
-│ │ ├── googleSheets.js
-│ │ └── authService.js
-│ │
-│ ├── context/
-│ ├── hooks/
-│ ├── utils/
-│ └── App.jsx
+│   ├── components/
+│   │   ├── Dashboard/
+│   │   ├── Map/
+│   │   ├── Emergency/
+│   │   ├── Crime/
+│   │   ├── Jobs/
+│   │   └── Community/
+│
+│   ├── pages/
+│   │   ├── Dashboard.jsx
+│   │   ├── Crime.jsx
+│   │   ├── Emergency.jsx
+│   │   ├── Jobs.jsx
+│   │   └── Community.jsx
+│
+│   ├── services/
+│   │   ├── api.js
+│   │   ├── mapService.js
+│   │   ├── googleSheets.js
+│   │   └── authService.js
+│
+│   ├── context/
+│   ├── hooks/
+│   ├── utils/
+│   └── App.jsx
 │
 ├── public/
 ├── .env
