@@ -1,0 +1,180 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  FARMER
+  FISHERMAN
+  BUYER
+  RESIDENT
+  ADMIN
+}
+
+model User {
+  id          String   @id @map("_id") // We will use Firebase UID as the MongoDB _id
+  email       String   @unique
+  fullName    String
+  phone       String
+  division    String
+  district    String
+  upazila     String   @index // Hyperlocal index
+  role        Role     @default(BUYER)
+  profileImg  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  products    Product[]
+  fish        FishListing[]
+  orders      Order[]
+  posts       Post[]
+  businesses  Business[]
+  services    Service[]
+  jobs        Job[]
+  tutor       TutorProfile?
+}
+
+// ----------------------------------------------------
+// Marketplaces
+// ----------------------------------------------------
+
+model Product {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  price       Float
+  quantity    String   // e.g., "1 kg", "500g"
+  stock       Int
+  category    String
+  images      String[]
+  sellerId    String
+  upazila     String   @index // Hyperlocal filtering
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  seller      User     @relation(fields: [sellerId], references: [id])
+}
+
+model FishListing {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  price       Float
+  weight      String   // e.g., "1 kg", "500g"
+  quantity    Int
+  images      String[]
+  sellerId    String
+  upazila     String   @index
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  seller      User     @relation(fields: [sellerId], references: [id])
+}
+
+// ----------------------------------------------------
+// Orders & Cart
+// ----------------------------------------------------
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+model Order {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  buyerId     String
+  totalAmount Float
+  status      OrderStatus @default(PENDING)
+  paymentMethod String  @default("COD") // Cash on Delivery, SSLCommerz, Stripe
+  items       Json[]    // Storing embedded product snapshorts for NoSQL efficiency
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  buyer       User      @relation(fields: [buyerId], references: [id])
+}
+
+// ----------------------------------------------------
+// Community & Services
+// ----------------------------------------------------
+
+model Post {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  content     String
+  images      String[]
+  authorId    String
+  upazila     String   @index
+  likes       Int      @default(0)
+  createdAt   DateTime @default(now())
+  
+  author      User     @relation(fields: [authorId], references: [id])
+  comments    Comment[]
+}
+
+model Comment {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  content     String
+  postId      String   @db.ObjectId
+  authorId    String
+  createdAt   DateTime @default(now())
+  
+  post        Post     @relation(fields: [postId], references: [id])
+}
+
+model Business {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  category    String
+  address     String
+  phone       String
+  upazila     String   @index
+  ownerId     String
+  rating      Float    @default(0.0)
+  
+  owner       User     @relation(fields: [ownerId], references: [id])
+}
+
+model Service {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  type        String   // Electrician, Plumber, Mechanic
+  description String
+  upazila     String   @index
+  providerId  String
+  rating      Float    @default(0.0)
+  
+  provider    User     @relation(fields: [providerId], references: [id])
+}
+
+model Job {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  type        String   // Part-time, Full-time, Daily
+  description String
+  salary      String
+  upazila     String   @index
+  employerId  String
+  createdAt   DateTime @default(now())
+  
+  employer    User     @relation(fields: [employerId], references: [id])
+}
+
+model TutorProfile {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  subjects    String[]
+  levels      String[]
+  fee         String
+  upazila     String   @index
+  userId      String   @unique
+  rating      Float    @default(0.0)
+  
+  user        User     @relation(fields: [userId], references: [id])
+}
