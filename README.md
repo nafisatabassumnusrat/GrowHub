@@ -234,10 +234,10 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 # GrowHub---Hyperlocal-Agriculture-Community
 ## 👨‍💻 Team 
-Miftahul Jannat - Team Lead
-Nishat Khan - UI/UX Designer & Researcher
-Nafisa Tabassum Nusrat  - Full Stack Developer | AI & Smart Systems Builder  
-Sadiya - Team mate
+- Miftahul Jannat - Team Lead
+- Nishat Khan - UI/UX Designer & Researcher
+- Nafisa Tabassum Nusrat  - Full Stack Developer | AI & Smart Systems Builder  
+- Sadiya - Team mate
 
 ---
 
