@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=GrowHub%20Hyper-Local%20Agriculture%20%26%20Community&fontSize=35&fontColor=ffffff" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=GrowHub%20Hyper-Local%20Agriculture%20&%20Community" />
 </p>
 
 > 🌐 AI-Powered Smart City Platform for Emergency Response, Agriculture & Ml model Deployed, Healthcare, Jobs & Community Intelligence
@@ -108,6 +108,41 @@ GrowHub solves these issues by creating a real-time intelligent civic ecosystem 
 - Real-time data logging
 
 ---
+# 📁 GrowHub Project Structure
+```
+GrowHub/
+├── src/
+│   ├── components/
+│   │   ├── Dashboard/
+│   │   ├── Map/
+│   │   ├── Emergency/
+│   │   ├── Crime/
+│   │   ├── Jobs/
+│   │   └── Community/
+│
+│   ├── pages/
+│   │   ├── Dashboard.jsx
+│   │   ├── Crime.jsx
+│   │   ├── Emergency.jsx
+│   │   ├── Jobs.jsx
+│   │   └── Community.jsx
+│
+│   ├── services/
+│   │   ├── api.js
+│   │   ├── mapService.js
+│   │   ├── googleSheets.js
+│   │   └── authService.js
+│
+│   ├── context/
+│   ├── hooks/
+│   ├── utils/
+│   └── App.jsx
+│
+├── public/
+├── .env
+├── package.json
+└── README.md
+```
 
 ## 📁 Project Structure
 
