@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=GrowHub%20Hyper-Local%20Agriculture%20&%20Community" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=GrowHub" />
 </p>
 
 > 🌐 AI-Powered Smart City Platform for Emergency Response, Agriculture & Ml model Deployed, Healthcare, Jobs & Community Intelligence
