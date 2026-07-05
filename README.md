@@ -144,54 +144,6 @@ GrowHub/
 └── README.md
 ```
 
-## 📁 Project Structure
-
-
-GrowHub
-
-src/
-- components/
-  - Dashboard/
-  - Map/
-  - Emergency/
-  - Crime/
-  - Jobs/
-  - Community/
-
-- pages/
-  - Dashboard.jsx
-  - Crime.jsx
-  - Emergency.jsx
-  - Jobs.jsx
-  - Community.jsx
-
-- services/
-  - api.js
-  - mapService.js
-  - googleSheets.js
-  - authService.js
-
-- context/
-- hooks/
-- utils/
-- App.jsx
-
-public/
-.env
-package.json
-README.md
----
-
-## ⚙️ Tech Stack
-
-- React.js / Next.js
-- Tailwind CSS / Material UI
-- Google Maps API / Mapbox
-- Node.js / Firebase
-- Google Sheets API
-- AI-based classification logic
-
----
 
 ## 🔥 Key Capabilities
 
